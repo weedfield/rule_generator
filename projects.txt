@@ -1,0 +1,33 @@
+# 観点の割り当て(_workspace 配下・プロジェクト名ベース)
+#
+# ROOT = プロジェクトの親ディレクトリ。環境変数 COPILOT_RULES_ROOT で上書き可。
+#        未設定なら ~/_workspace を指定。
+
+# 書式:  <プロジェクト名>: <ブロック名1>, <ブロック名2> ...
+#   - プロジェクト名 = ROOT 直下のフォルダ名。レビュー観点の適用先プロジェクトを指定
+#   - ブロック名    = blocks/ 配下のファイル名(.md 省略)　適用するルールを指定
+
+#   ---<プロジェクト名>------
+#   - "*"行　　　　　　　： 共通指定。除外プロジェクトを除く全プロジェクトに共通で適用。
+#   - "!プロジェクト名"　： 除外プロジェクト指定。いかなる場合でも配布対象から除外される。
+#   - プロジェクト名　　　：「* の共通」+「その行の追加分」(重複は自動で除去)
+#   **専用行が無いプロジェクトは * だけが適用される**
+
+#   ---<ブロック名>------
+#   - "ブロック名" で、指定ブロックのルールを記載行の<プロジェクト名>に適用。
+#   - "-ブロック名" で、* から乗ってくる共通ブロックを個別除外(例: some-proj: -git-pr)
+
+*: review-policy, markup, css, js, design, browser-check, image, file, requirements, logging, vwo, accessibility, security, cleanup
+!git-web
+!git-web-edit
+!reformcounter
+!reformcounter-sp
+!archive
+sfc-reformcounter
+!copilot-rules
+!hatenablog
+
+rf_kreisel-form: rf_kreisel-form
+lp: project-lp
+git-web: project-git-web
+git-web-edit: project-git-web

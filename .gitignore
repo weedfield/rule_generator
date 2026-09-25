@@ -1,0 +1,8 @@
+# Local-only configuration and generated outputs
+# These are intentionally not tracked in the shared repository.
+projects.txt
+blocks/*.md
+
+# Generated per-environment files
+*.local
+.env
